@@ -79,6 +79,7 @@ import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.WriteSettingsDetails;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardContainerFragment;
+import com.android.settings.cyanogenmod.superuser.PolicyNativeFragment;
 import com.android.settings.dashboard.SearchResultsSummary;
 import com.android.settings.datausage.DataUsageSummary;
 import com.android.settings.deletionhelper.AutomaticStorageManagerSettings;
@@ -341,6 +342,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             UserSettings.class.getName(),
             NotificationAccessSettings.class.getName(),
             ZenAccessSettings.class.getName(),
+            PolicyNativeFragment.class.getName(),
             PrintSettingsFragment.class.getName(),
             PrintJobSettingsFragment.class.getName(),
             TrustedCredentialsSettings.class.getName(),
@@ -1279,6 +1281,10 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                 Settings.ProfileMgrMainActivity.class.getName()),
                 getResources().getBoolean(R.bool.config_profilemgrmain_enabled), isAdmin, pm);
+
+        setTileEnabled(new ComponentName(packageName,
+                Settings.SuperuserActivity.class.getName()),
+                DevelopmentSettings.isRootForAppsEnabled(), isAdmin, pm);
 
         final boolean showDev = mDevelopmentPreferences.getBoolean(
                     DevelopmentSettings.PREF_SHOW, android.os.Build.TYPE.equals("eng") || android.os.Build.TYPE.equals("userdebug"))

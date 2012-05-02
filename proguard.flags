@@ -23,6 +23,8 @@
 -keep class com.android.settings.display.NightDisplaySettings
 -keep class com.android.settings.bliss.**
 -keep class com.android.settings.bliss.*Settings
+-keep class com.android.settings.cyanogenmod.superuser.**
+-keep class com.koushikdutta.**
 
 # Keep click responders
 -keepclassmembers class com.android.settings.inputmethod.UserDictionaryAddWordActivity {
