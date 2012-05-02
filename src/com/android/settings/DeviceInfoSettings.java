@@ -87,11 +87,17 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
+<<<<<<< HEAD
     private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_BUILD_VERSION = "mod_build_version";
     private static final String KEY_BLISS_SHARE = "share";
     private static final String KEY_MOD_BUILD_TYPE = "build_type";
 
+=======
+    private static final String KEY_MOD_API_LEVEL = "mod_api_level";
+    private static final String KEY_CM_UPDATES = "cm_updates";
+    private static final String KEY_DEVICE_MANUFACTURER = "device_manufacturer";
+>>>>>>> 2c5fce3... Added Manufacturer to device info
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     static final int TAPS_TO_SHOW_DEVICEID = 7;
@@ -148,12 +154,19 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 cyanogenmod.os.Build.CYANOGENMOD_DISPLAY_VERSION);
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+<<<<<<< HEAD
         setValueSummary(KEY_MOD_VERSION, "ro.bliss.version");
         findPreference(KEY_BUILD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         setValueSummary(KEY_BUILD_VERSION, "ro.bliss.version");
         setValueSummary(KEY_MOD_BUILD_TYPE, "ro.bliss.display.buildtype");
         findPreference(KEY_MOD_BUILD_TYPE).setEnabled(true);
+=======
+        setExplicitValueSummary(KEY_MOD_API_LEVEL, constructApiLevelString());
+        findPreference(KEY_MOD_API_LEVEL).setEnabled(true);
+        findPreference(KEY_MOD_BUILD_DATE).setEnabled(true);
+        setStringSummary(KEY_DEVICE_MANUFACTURER, Build.MANUFACTURER);
+>>>>>>> 2c5fce3... Added Manufacturer to device info
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
