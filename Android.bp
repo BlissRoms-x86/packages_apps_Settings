@@ -27,14 +27,26 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java", 
-        "Blissify/src/**/*.java"],
+    srcs: ["src/**/*.java",
+		   "Blissify/src/**/*.java",
+           "koush/Widgets/Widgets/src/**/*.java",
+           "koush/Superuser/Superuser/src/**/*.java",
+           "src/com/android/settings/cyanogenmod/superuser/*.java"
+	],
+    
+    aapt_include_all_resources: true,
 
-    aaptflags: ["--extra-packages com.blissroms.blissify"],
+    aaptflags: ["--auto-add-overlay",
+				"--extra-packages com.blissroms.blissify",
+				"--extra-packages com.koushikdutta.superuser:com.koushikdutta.widgets"
+	],
 
     resource_dirs: ["res",
-                    "Blissify/res"
-    ],
+                    "Blissify/res",
+                    "koush/Widgets/WidgetsSample/res",
+                    "koush/Widgets/Widgets/res",
+                    "koush/Superuser/Superuser/res"
+	],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
