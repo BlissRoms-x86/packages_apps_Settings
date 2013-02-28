@@ -70,11 +70,10 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFragment
         implements SwitchBar.OnSwitchChangeListener, OemUnlockDialogHost, AdbDialogHost,
-        AdbClearKeysDialogHost, LogPersistDialogHost,
+        AdbClearKeysDialogHost, LogPersistDialogHost, RootAccessDialogHost,
         BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener,
         UpdateRecoveryDialogHost,
-        AbstractBluetoothPreferenceController.Callback,
-        RootAccessDialogHost {
+        AbstractBluetoothPreferenceController.Callback {
 
     private static final String TAG = "DevSettingsDashboard";
 
@@ -335,15 +334,15 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
 
     @Override
     public void onRootAccessDialogConfirmed() {
-        final RootAccessPreferenceController controller =
-                getDevelopmentOptionsController(RootAccessPreferenceController.class);
+        final RootAccessPreferenceController controller = getDevelopmentOptionsController(
+                RootAccessPreferenceController.class);
         controller.onRootAccessDialogConfirmed();
     }
 
     @Override
     public void onRootAccessDialogDismissed() {
-        final RootAccessPreferenceController controller =
-                getDevelopmentOptionsController(RootAccessPreferenceController.class);
+        final RootAccessPreferenceController controller = getDevelopmentOptionsController(
+                RootAccessPreferenceController.class);
         controller.onRootAccessDialogDismissed();
     }
 
@@ -603,6 +602,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
             }
         }
     }
+    
 
     /**
      * For Search.
