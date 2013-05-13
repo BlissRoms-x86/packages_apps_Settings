@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -75,6 +76,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
+    private static final String KEY_OPENGL_VERSION = "opengl_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
     private static final String KEY_DEVICE_MODEL = "device_model";
     private static final String KEY_DEVICE_NAME = "device_name";
@@ -124,7 +126,15 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         addPreferencesFromResource(R.xml.device_info_settings);
 
+<<<<<<< HEAD
         setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE + " " + Build.ID);
+=======
+        String opengl_version = "GL Vendor: " + GLES20.glGetString(GLES20.GL_VENDOR) + "\n" +
+            "GL Renderer: " + GLES20.glGetString(GLES20.GL_RENDERER) + "\n" +
+            "GL Version: " + GLES20.glGetString(GLES20.GL_VERSION);
+
+        setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
+>>>>>>> 89b486e... Add information about OpenGL driver version
         findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
         String patch = Build.VERSION.SECURITY_PATCH;
         if (!"".equals(patch)) {
@@ -165,6 +175,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setExplicitValueSummary(KEY_MOD_API_LEVEL, constructApiLevelString());
         findPreference(KEY_MOD_API_LEVEL).setEnabled(true);
         findPreference(KEY_MOD_BUILD_DATE).setEnabled(true);
+        findPreference(KEY_OPENGL_VERSION).setSummary(opengl_version);
         setStringSummary(KEY_DEVICE_MANUFACTURER, Build.MANUFACTURER);
 >>>>>>> 2c5fce3... Added Manufacturer to device info
 
