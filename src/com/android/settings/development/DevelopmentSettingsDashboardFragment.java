@@ -58,7 +58,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         implements SwitchBar.OnSwitchChangeListener, OemUnlockDialogHost, AdbDialogHost,
         AdbClearKeysDialogHost, LogPersistDialogHost,
         BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener,
-        AdbNetworkDialogHost {
+        AdbNetworkDialogHost, RootAccessDialogHost {
 
     private static final String TAG = "DevSettingsDashboard";
 
@@ -294,6 +294,20 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
     }
 
     @Override
+    public void onRootAccessDialogConfirmed() {
+        final RootAccessPreferenceController controller =
+                getDevelopmentOptionsController(RootAccessPreferenceController.class);
+        controller.onRootAccessDialogConfirmed();
+    }
+
+    @Override
+    public void onRootAccessDialogDismissed() {
+        final RootAccessPreferenceController controller =
+                getDevelopmentOptionsController(RootAccessPreferenceController.class);
+        controller.onRootAccessDialogDismissed();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         boolean handledResult = false;
         for (AbstractPreferenceController controller : mPreferenceControllers) {
@@ -472,6 +486,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new ShortcutManagerThrottlingPreferenceController(context));
         controllers.add(new EnableGnssRawMeasFullTrackingPreferenceController(context));
         controllers.add(new ForceAuthorizeSubstratumPreferenceController(context));
+        controllers.add(new RootAccessPreferenceController(context, fragment));
         controllers.add(new DefaultLaunchPreferenceController(context, "running_apps"));
         controllers.add(new DefaultLaunchPreferenceController(context, "demo_mode"));
         controllers.add(new DefaultLaunchPreferenceController(context, "quick_settings_tiles"));
