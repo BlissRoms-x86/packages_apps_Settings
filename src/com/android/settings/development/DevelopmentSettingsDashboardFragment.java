@@ -73,7 +73,8 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         AdbClearKeysDialogHost, LogPersistDialogHost,
         BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener,
         UpdateRecoveryDialogHost,
-        AbstractBluetoothPreferenceController.Callback {
+        AbstractBluetoothPreferenceController.Callback,
+        RootAccessDialogHost {
 
     private static final String TAG = "DevSettingsDashboard";
 
@@ -333,6 +334,20 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
     }
 
     @Override
+    public void onRootAccessDialogConfirmed() {
+        final RootAccessPreferenceController controller =
+                getDevelopmentOptionsController(RootAccessPreferenceController.class);
+        controller.onRootAccessDialogConfirmed();
+    }
+
+    @Override
+    public void onRootAccessDialogDismissed() {
+        final RootAccessPreferenceController controller =
+                getDevelopmentOptionsController(RootAccessPreferenceController.class);
+        controller.onRootAccessDialogDismissed();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         boolean handledResult = false;
         for (AbstractPreferenceController controller : mPreferenceControllers) {
@@ -464,6 +479,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new SelectDSUPreferenceController(context));
         controllers.add(new AdbPreferenceController(context, fragment));
         controllers.add(new AdbRootPreferenceController(context, fragment));
+        controllers.add(new RootAccessPreferenceController(context, fragment));
         controllers.add(new ClearAdbKeysPreferenceController(context, fragment));
         controllers.add(new WirelessDebuggingPreferenceController(context, lifecycle));
         controllers.add(new AdbAuthorizationTimeoutPreferenceController(context));
