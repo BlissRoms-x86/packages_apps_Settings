@@ -57,6 +57,7 @@ public class Settings extends SettingsActivity {
     public static class OtherDeviceFunctionsSettingsActivity extends SettingsActivity { /* empty */}
     public static class SystemUpdateActivity extends SettingsActivity { /* empty */}
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AppsCompatibilityActivity extends SettingsActivity { /* empty */ }
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
     public static class AllApplicationsActivity extends SettingsActivity { /* empty */ }
