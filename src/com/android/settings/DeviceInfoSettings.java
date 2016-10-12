@@ -230,8 +230,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_BUILD_VERSION, "ro.bliss.version");
         setValueSummary(KEY_MOD_BUILD_TYPE, "ro.bliss.display.buildtype");
         findPreference(KEY_MOD_BUILD_TYPE).setEnabled(true);
-        setExplicitValueSummary(KEY_MOD_API_LEVEL, constructApiLevelString());
-        findPreference(KEY_MOD_API_LEVEL).setEnabled(true);
         findPreference(KEY_MOD_BUILD_DATE).setEnabled(true);
         findPreference(KEY_OPENGL_VERSION).setSummary(opengl_version);
         setStringSummary(KEY_DEVICE_MANUFACTURER, Build.MANUFACTURER);
