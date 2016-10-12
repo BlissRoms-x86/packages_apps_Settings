@@ -183,8 +183,6 @@
                 android:icon="@drawable/ic_settings_notifications"
                 />
 
-<<<<<<< HEAD
-=======
         <!-- Lock screen -->
         <dashboard-tile
                 android:id="@+id/lockscreen_settings"
@@ -206,7 +204,6 @@
 
         <external-tiles />
 
->>>>>>> 2dbd0c6... Add an option to control native bridge
         <!-- Battery -->
         <dashboard-tile
                 android:id="@+id/battery_settings"
