@@ -997,10 +997,12 @@
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Android 版本"</string>
     <string name="security_patch" msgid="8438384045870296634">"Android 安全性修補程式等級"</string>
+    <string name="device_manufacturer">"製造商"</string>
     <string name="model_number" msgid="3765737700545384794">"型號"</string>
     <string name="fcc_equipment_id" msgid="149114368246356737">"設備 ID"</string>
     <string name="baseband_version" msgid="1848990160763524801">"基頻版本"</string>
     <string name="kernel_version" msgid="9192574954196167602">"核心版本"</string>
+    <string name="opengl_version">"Open GL 驅動版本"</string>
     <string name="build_number" msgid="3075795840572241758">"版本號碼"</string>
     <string name="selinux_status" msgid="6212165375172061672">"SELinux 狀態"</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"無法取得"</string>
@@ -1577,6 +1579,9 @@
     <string name="runningservicedetails_stop_dlg_title" msgid="4253292537154337233">"停止系統服務？"</string>
     <string name="runningservicedetails_stop_dlg_text" product="tablet" msgid="3371302398335665793">"如果您停用這項服務，您的平板電腦上的某些功能可能無法正常運作，待您重新開機後才會恢復正常。"</string>
     <string name="runningservicedetails_stop_dlg_text" product="default" msgid="3920243762189484756">"如果您停用這項服務，您的手機上的某些功能可能無法正常運作，待您重新開機後才會恢復正常。"</string>
+    <string name="apps_compatibility_title">"應用程式相容性"</string>
+    <string name="nativebridge_toggle_title">"原生相容模式"</string>
+    <string name="nativebridge_toggle_summary">"可相容於使用 arm 原生函式庫的應用程式"</string>
     <string name="language_settings" msgid="8758655933029560944">"語言與輸入設定"</string>
     <string name="language_keyboard_settings_title" msgid="3709159207482544398">"語言與輸入設定"</string>
     <string name="keyboard_settings_category" msgid="8275523930352487827">"鍵盤與輸入法"</string>

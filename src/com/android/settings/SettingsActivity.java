@@ -72,6 +72,7 @@ import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.WriteSettingsDetails;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardContainerFragment;
+import com.android.settings.cyanogenmod.superuser.PolicyNativeFragment;
 import com.android.settings.dashboard.SearchResultsSummary;
 import com.android.settings.datausage.DataUsageSummary;
 import com.android.settings.deviceinfo.ImeiInformation;
@@ -242,6 +243,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.DisplaySettingsActivity.class.getName(),
             Settings.StorageSettingsActivity.class.getName(),
             Settings.ManageApplicationsActivity.class.getName(),
+            Settings.AppsCompatibilityActivity.class.getName(),
             Settings.PowerUsageSummaryActivity.class.getName(),
             Settings.GestureSettingsActivity.class.getName(),
             //personal_section
@@ -279,6 +281,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),
+            AppsCompatibility.class.getName(),
             NotificationApps.class.getName(),
             ManageAssist.class.getName(),
             ProcessStatsUi.class.getName(),
@@ -310,6 +313,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             UserSettings.class.getName(),
             NotificationAccessSettings.class.getName(),
             ZenAccessSettings.class.getName(),
+            PolicyNativeFragment.class.getName(),
             PrintSettingsFragment.class.getName(),
             PrintJobSettingsFragment.class.getName(),
             TrustedCredentialsSettings.class.getName(),
@@ -1084,6 +1088,10 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                 Settings.PrintSettingsActivity.class.getName()),
                 pm.hasSystemFeature(PackageManager.FEATURE_PRINTING), isAdmin, pm);
+
+        setTileEnabled(new ComponentName(packageName,
+                Settings.SuperuserActivity.class.getName()),
+                DevelopmentSettings.isRootForAppsEnabled(), isAdmin, pm);
 
         final boolean showDev = mDevelopmentPreferences.getBoolean(
                     DevelopmentSettings.PREF_SHOW, android.os.Build.TYPE.equals("eng") || android.os.Build.TYPE.equals("userdebug"))

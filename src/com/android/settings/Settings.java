@@ -53,6 +53,7 @@ public class Settings extends SettingsActivity {
     public static class NightDisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AppsCompatibilityActivity extends SettingsActivity { /* empty */ }
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
     public static class AllApplicationsActivity extends SettingsActivity { /* empty */ }
@@ -107,6 +108,7 @@ public class Settings extends SettingsActivity {
     public static class PaymentSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrintSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrintJobSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class SuperuserActivity extends SettingsActivity { /* empty */ }
     public static class ZenModeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ZenModePrioritySettingsActivity extends SettingsActivity { /* empty */ }
     public static class ZenModeAutomationSettingsActivity extends SettingsActivity { /* empty */ }
