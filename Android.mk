@@ -38,9 +38,9 @@ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
     frameworks/support/v14/preference/res \
     frameworks/support/v7/appcompat/res \
     frameworks/support/v7/recyclerview/res \
-    packages/apps/Blissify/res
     external/koush/Widgets/Widgets/res \
     external/koush/Superuser/Superuser/res \
+    packages/apps/Blissify/res 
 
 LOCAL_PACKAGE_NAME := Settings
 LOCAL_CERTIFICATE := platform
