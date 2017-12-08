@@ -82,6 +82,18 @@
         android:order="35"
         android:title="@string/status_wifi_mac_address"
         android:summary="@string/summary_placeholder"/>
+    
+    <!-- Device manufacturer -->
+    <Preference 
+        android:key="device_manufacturer"
+        android:title="@string/device_manufacturer"
+        android:summary="@string/device_info_default"/>
+
+    <!-- Device hardware model -->
+    <Preference
+        android:key="device_model"
+        android:title="@string/model_info"
+        android:summary="@string/summary_placeholder"/>
 
     <!-- Bluetooth address -->
     <Preference
