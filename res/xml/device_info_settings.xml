@@ -137,6 +137,13 @@
         <intent android:action="android.settings.SHOW_MANUAL"/>
     </Preference>
 
+    <!-- OpenGL Version -->
+	<Preference
+        android:key="opengl_version"
+        android:title="@string/opengl_version"
+        android:summary="@string/device_info_default"/>
+
+
     <!-- Feedback on the device -->
     <!--Preference
         android:key="device_feedback"

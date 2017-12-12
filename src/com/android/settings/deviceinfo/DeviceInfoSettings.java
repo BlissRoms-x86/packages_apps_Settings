@@ -33,6 +33,7 @@ import com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController;
 import com.android.settings.deviceinfo.simstatus.SimStatusPreferenceController;
 import com.android.settings.deviceinfo.UpdatePreferenceController;
 import com.android.settings.deviceinfo.DeviceManufacturerPreferenceController;
+import com.android.settings.deviceinfo.OpenGLVersionPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -141,6 +142,7 @@ public class DeviceInfoSettings extends DashboardFragment implements Indexable {
         controllers.add(new FccEquipmentIdPreferenceController(context));
 	    controllers.add(new UpdatePreferenceController(context));
         controllers.add(new DeviceManufacturerPreferenceController(context));
+        controllers.add(new OpenGLVersionPreferenceController(context));
         controllers.add(new BuildNumberPreferenceController(context, activity, fragment, lifecycle));
         return controllers;
     }
