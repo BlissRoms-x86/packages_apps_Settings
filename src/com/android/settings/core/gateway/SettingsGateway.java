@@ -146,6 +146,7 @@ import com.android.settings.security.SecuritySettings;
 import com.android.settings.shortcut.CreateShortcut;
 import com.android.settings.sound.MediaControlsSettings;
 import com.android.settings.support.SupportDashboardActivity;
+import com.android.settings.system.AndroidX86DashboardFragment;
 import com.android.settings.system.ResetDashboardFragment;
 import com.android.settings.system.SystemDashboardFragment;
 import com.android.settings.tts.TextToSpeechSettings;
@@ -297,6 +298,7 @@ public class SettingsGateway {
             AppDashboardFragment.class.getName(),
             WifiCallingDisclaimerFragment.class.getName(),
             AccountDashboardFragment.class.getName(),
+            AndroidX86DashboardFragment.class.getName(),
             EnterprisePrivacySettings.class.getName(),
             WebViewAppPicker.class.getName(),
             LockscreenDashboardFragment.class.getName(),
@@ -323,6 +325,7 @@ public class SettingsGateway {
             Settings.NetworkDashboardActivity.class.getName(),
             Settings.ConnectedDeviceDashboardActivity.class.getName(),
             Settings.AppDashboardActivity.class.getName(),
+            Settings.AndroidX86DashboardActivity.class.getName(),
             Settings.DisplaySettingsActivity.class.getName(),
             Settings.SoundSettingsActivity.class.getName(),
             Settings.StorageDashboardActivity.class.getName(),
