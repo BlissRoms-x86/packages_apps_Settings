@@ -54,6 +54,7 @@ public class BluetoothDetailsProfilesController extends BluetoothDetailsControll
     private LocalBluetoothProfileManager mProfileManager;
     private CachedBluetoothDevice mCachedDevice;
     private PreferenceCategory mProfilesContainer;
+    private boolean mPbapClientAdded = false;
 
     public BluetoothDetailsProfilesController(Context context, PreferenceFragment fragment,
             LocalBluetoothManager manager, CachedBluetoothDevice device, Lifecycle lifecycle) {
@@ -194,9 +195,16 @@ public class BluetoothDetailsProfilesController extends BluetoothDetailsControll
     private List<LocalBluetoothProfile> getProfiles() {
         List<LocalBluetoothProfile> result = mCachedDevice.getConnectableProfiles();
 
+        for (LocalBluetoothProfile profile : result) {
+            if (profile.getProfileId() ==  BluetoothProfile.PBAP_CLIENT) {
+                mPbapClientAdded = true;
+                break;
+            }
+        }
+
         final int pbapPermission = mCachedDevice.getPhonebookPermissionChoice();
         // Only provide PBAP cabability if the client device has requested PBAP.
-        if (pbapPermission != CachedBluetoothDevice.ACCESS_UNKNOWN) {
+        if  (!mPbapClientAdded && (pbapPermission != CachedBluetoothDevice.ACCESS_UNKNOWN)) {
             final PbapServerProfile psp = mManager.getProfileManager().getPbapProfile();
             result.add(psp);
         }
