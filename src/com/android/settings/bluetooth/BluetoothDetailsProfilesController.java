@@ -193,17 +193,27 @@ public class BluetoothDetailsProfilesController extends BluetoothDetailsControll
     private List<LocalBluetoothProfile> getProfiles() {
         List<LocalBluetoothProfile> result = mCachedDevice.getConnectableProfiles();
         final BluetoothDevice device = mCachedDevice.getDevice();
+        boolean pbapClientAdded = false;
+        boolean mapClientAdded = false;
+
+        for (LocalBluetoothProfile profile : result) {
+            if (profile.getProfileId() == BluetoothProfile.PBAP_CLIENT) {
+                pbapClientAdded = true;
+            } else if (profile.getProfileId() == BluetoothProfile.MAP_CLIENT) {
+                mapClientAdded = true;
+            }
+        }
 
         final int pbapPermission = device.getPhonebookAccessPermission();
         // Only provide PBAP cabability if the client device has requested PBAP.
-        if (pbapPermission != BluetoothDevice.ACCESS_UNKNOWN) {
+        if (!pbapClientAdded && pbapPermission != BluetoothDevice.ACCESS_UNKNOWN) {
             final PbapServerProfile psp = mManager.getProfileManager().getPbapProfile();
             result.add(psp);
         }
 
-        final MapProfile mapProfile = mManager.getProfileManager().getMapProfile();
         final int mapPermission = device.getMessageAccessPermission();
-        if (mapPermission != BluetoothDevice.ACCESS_UNKNOWN) {
+        if (!mapClientAdded && mapPermission != BluetoothDevice.ACCESS_UNKNOWN) {
+            final MapProfile mapProfile = mManager.getProfileManager().getMapProfile();
             result.add(mapProfile);
         }
 
