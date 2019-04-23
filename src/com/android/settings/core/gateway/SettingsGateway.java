@@ -123,6 +123,7 @@ import com.android.settings.network.NetworkDashboardFragment;
 import com.android.settings.network.NetworkProviderSettings;
 import com.android.settings.network.apn.ApnEditor;
 import com.android.settings.network.apn.ApnSettings;
+import com.android.settings.ethernet.EthernetSettings;
 import com.android.settings.network.telephony.NetworkSelectSettings;
 import com.android.settings.nfc.AndroidBeam;
 import com.android.settings.nfc.PaymentSettings;
@@ -278,6 +279,7 @@ public class SettingsGateway {
             ChannelNotificationSettings.class.getName(),
             ApnSettings.class.getName(),
             ApnEditor.class.getName(),
+            EthernetSettings.class.getName(),
             WifiCallingSettings.class.getName(),
             ZenModeScheduleRuleSettings.class.getName(),
             ZenModeEventRuleSettings.class.getName(),
