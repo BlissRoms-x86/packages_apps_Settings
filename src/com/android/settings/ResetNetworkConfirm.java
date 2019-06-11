@@ -25,6 +25,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkPolicyManager;
 import android.net.Uri;
@@ -89,6 +90,7 @@ public class ResetNetworkConfirm extends InstrumentedFragment {
 
         @Override
         protected Boolean doInBackground(Void... params) {
+            PackageManager pm = mContext.getPackageManager();
             ConnectivityManager connectivityManager = (ConnectivityManager)
                     mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
             if (connectivityManager != null) {
@@ -103,17 +105,19 @@ public class ResetNetworkConfirm extends InstrumentedFragment {
 
             p2pFactoryReset(mContext);
 
-            TelephonyManager telephonyManager = (TelephonyManager)
-                    mContext.getSystemService(Context.TELEPHONY_SERVICE);
-            if (telephonyManager != null) {
-                telephonyManager.factoryReset(mSubId);
-            }
+            if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+                TelephonyManager telephonyManager = (TelephonyManager)
+                        mContext.getSystemService(Context.TELEPHONY_SERVICE);
+                if (telephonyManager != null) {
+                    telephonyManager.factoryReset(mSubId);
+                }
 
-            NetworkPolicyManager policyManager = (NetworkPolicyManager)
-                    mContext.getSystemService(Context.NETWORK_POLICY_SERVICE);
-            if (policyManager != null) {
-                String subscriberId = telephonyManager.getSubscriberId(mSubId);
-                policyManager.factoryReset(subscriberId);
+                NetworkPolicyManager policyManager = (NetworkPolicyManager)
+                        mContext.getSystemService(Context.NETWORK_POLICY_SERVICE);
+                if (policyManager != null) {
+                    String subscriberId = telephonyManager.getSubscriberId(mSubId);
+                    policyManager.factoryReset(subscriberId);
+                }
             }
 
             BluetoothManager btManager = (BluetoothManager)
