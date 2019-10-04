@@ -422,4 +422,39 @@
         <item>3</item>
     </string-array>
 
+    <!-- System theme -->
+    <string-array name="system_theme_style_entries" translatable="false">
+        <item>@string/systemui_theme_wallpaper</item>
+        <item>@string/systemui_theme_light</item>
+        <item>@string/systemui_theme_dark</item>
+    </string-array>
+
+    <string-array name="system_theme_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Double Tap/Longpress Power Flashlight -->
+    <string-array name="double_tap_power_flashlight_entries" translatable="false">
+        <item>@string/torch_power_button_gesture_none</item>
+        <item>@string/torch_power_button_gesture_dt</item>
+        <item>@string/torch_power_button_gesture_lp</item>
+    </string-array>
+
+    <string-array name="double_tap_power_flashlight_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Fingerprint sensor locations.  Devices should configure their sensor location using
+         config_fingerprintSensorLocation -->
+    <string-array name="security_settings_fingerprint_sensor_locations" translatable="false">
+        <item>@string/security_settings_fingerprint_sensor_location_back</item>
+        <item>@string/security_settings_fingerprint_sensor_location_front</item>
+        <item>@string/security_settings_fingerprint_sensor_location_left</item>
+        <item>@string/security_settings_fingerprint_sensor_location_right</item>
+    </string-array>
+
 </resources>

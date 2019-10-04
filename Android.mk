@@ -14,6 +14,7 @@ include $(CLEAR_VARS)
 LOCAL_PACKAGE_NAME := Settings
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
+LOCAL_OVERRIDES_PACKAGES := Doze OnePlusDoze XiaomiDoze AsusDoze
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_TAGS := optional
 LOCAL_USE_AAPT2 := true
@@ -42,7 +43,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
 LOCAL_JAVA_LIBRARIES := \
     bouncycastle \
     telephony-common \
-    ims-common
+    ims-common \
+    telephony-ext
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-arch-lifecycle-runtime \
@@ -79,6 +81,7 @@ endif
 
 include frameworks/opt/setupwizard/library/common-gingerbread.mk
 include frameworks/base/packages/SettingsLib/common.mk
+include vendor/support/common.mk
 
 include $(BUILD_PACKAGE)
 
