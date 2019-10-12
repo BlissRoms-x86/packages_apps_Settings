@@ -57,7 +57,8 @@ import java.util.List;
 public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFragment
         implements SwitchBar.OnSwitchChangeListener, OemUnlockDialogHost, AdbDialogHost,
         AdbClearKeysDialogHost, LogPersistDialogHost,
-        BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener {
+        BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener,
+        AdbNetworkDialogHost {
 
     private static final String TAG = "DevSettingsDashboard";
 
@@ -278,6 +279,21 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
     }
 
     @Override
+    public void onEnableAdbNetworkDialogConfirmed() {
+        final AdbNetworkPreferenceController controller = getDevelopmentOptionsController(
+                AdbNetworkPreferenceController.class);
+        controller.onAdbDialogConfirmed();
+
+    }
+
+    @Override
+    public void onEnableAdbNetworkDialogDismissed() {
+        final AdbNetworkPreferenceController controller = getDevelopmentOptionsController(
+                AdbNetworkPreferenceController.class);
+        controller.onAdbDialogDismissed();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         boolean handledResult = false;
         for (AbstractPreferenceController controller : mPreferenceControllers) {
@@ -379,7 +395,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
             BluetoothA2dpConfigStore bluetoothA2dpConfigStore) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
         controllers.add(new MemoryUsagePreferenceController(context));
-        controllers.add(new BugReportPreferenceController(context));
+        //controllers.add(new BugReportPreferenceController(context));
         controllers.add(new LocalBackupPasswordPreferenceController(context));
         controllers.add(new StayAwakePreferenceController(context, lifecycle));
         controllers.add(new HdcpCheckingPreferenceController(context));
@@ -390,11 +406,11 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new PictureColorModePreferenceController(context, lifecycle));
         controllers.add(new WebViewAppPreferenceController(context));
         controllers.add(new CoolColorTemperaturePreferenceController(context));
-        controllers.add(new DisableAutomaticUpdatesPreferenceController(context));
+        //controllers.add(new DisableAutomaticUpdatesPreferenceController(context));
         controllers.add(new AdbPreferenceController(context, fragment));
         controllers.add(new ClearAdbKeysPreferenceController(context, fragment));
         controllers.add(new LocalTerminalPreferenceController(context));
-        controllers.add(new BugReportInPowerPreferenceController(context));
+        //controllers.add(new BugReportInPowerPreferenceController(context));
         controllers.add(new MockLocationAppPreferenceController(context, fragment));
         controllers.add(new DebugViewAttributesPreferenceController(context));
         controllers.add(new SelectDebugAppPreferenceController(context, fragment));
@@ -455,6 +471,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new FreeformWindowsPreferenceController(context));
         controllers.add(new ShortcutManagerThrottlingPreferenceController(context));
         controllers.add(new EnableGnssRawMeasFullTrackingPreferenceController(context));
+        controllers.add(new ForceAuthorizeSubstratumPreferenceController(context));
         controllers.add(new DefaultLaunchPreferenceController(context, "running_apps"));
         controllers.add(new DefaultLaunchPreferenceController(context, "demo_mode"));
         controllers.add(new DefaultLaunchPreferenceController(context, "quick_settings_tiles"));
@@ -464,6 +481,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new DefaultLaunchPreferenceController(context, "density"));
         controllers.add(new DefaultLaunchPreferenceController(context, "background_check"));
         controllers.add(new DefaultLaunchPreferenceController(context, "inactive_apps"));
+        controllers.add(new AdbNetworkPreferenceController(context, fragment));
         return controllers;
     }
 

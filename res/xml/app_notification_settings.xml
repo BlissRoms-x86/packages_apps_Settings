@@ -16,6 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res-auto"
+        xmlns:blissify="http://schemas.android.com/apk/res-auto"
         android:key="app_notifications">
 
     <com.android.settings.applications.LayoutPreference
@@ -48,6 +49,40 @@
         android:title="@string/app_notification_override_dnd_title"
         android:summary="@string/app_notification_override_dnd_summary"
         settings:useAdditionalSummary="true"/>
+
+    <!-- Lights -->
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:key="lights"
+        android:title="@string/notification_show_lights_title"
+        settings:useAdditionalSummary="true"/>
+
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:key="show_light_on_zen"
+        android:dependency="lights"
+        android:title="@string/show_light_on_zen_title"/>
+
+    <!-- Custom led color -->
+    <com.bliss.support.colorpicker.ColorPickerPreference
+        android:key="custom_light"
+        android:dependency="lights"
+        android:title="@string/custom_light_title"
+        ledPreview="true" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="custom_light_on_time"
+        android:dependency="lights"
+        android:title="@string/custom_light_on_time_title"
+        android:max="5000"
+        blissify:min="0"
+        blissify:interval="100" />
+
+    <com.bliss.support.preferences.SystemSettingSeekBarPreference
+        android:key="custom_light_off_time"
+        android:dependency="lights"
+        android:title="@string/custom_light_off_time_title"
+        android:max="5000"
+        blissify:min="0"
+        blissify:interval="100" />
 
     <PreferenceCategory
         android:key="app_advanced"

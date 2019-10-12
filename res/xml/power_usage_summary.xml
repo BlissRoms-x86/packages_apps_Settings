@@ -23,7 +23,7 @@
 
     <com.android.settings.applications.LayoutPreference
         android:key="battery_header"
-        android:selectable="false"
+        android:selectable="true"
         android:layout="@layout/battery_header" />
 
     <PreferenceCategory
@@ -49,6 +49,17 @@
         android:title="@string/battery_percentage"
         android:summary="@string/battery_percentage_description" />
 
+    <Preference
+        android:fragment="com.android.settings.fuelgauge.AggressiveBatterySettings"
+        android:key="aggressive_battery"
+        android:title="@string/aggressive_battery_title"
+        android:summary="@string/aggressive_battery_summary" />
+
+    <Preference
+        android:fragment="com.android.settings.fuelgauge.smartcharging.SmartChargingSettings"
+        android:key="smart_charging_key"
+        android:title="@string/smart_charging_title"
+        android:summary="@string/smart_charging_summary" />
 
     <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="last_full_charge"
@@ -59,6 +70,11 @@
     <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="screen_usage"
         android:title="@string/device_screen_usage"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="battery_temp"
+        android:title="@string/battery_temp_title"
         android:selectable="false" />
 
 </PreferenceScreen>

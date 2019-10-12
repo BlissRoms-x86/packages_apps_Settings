@@ -21,10 +21,18 @@
     android:key="device_info_pref_screen"
     android:title="@string/about_settings">
 
+    <!-- Changelog -->
+    <Preference
+        android:key="changelog"
+        android:order="1"
+        android:title="@string/changelog_title"
+	android:summary="@string/changelog_summary"
+        android:fragment="com.android.settings.bliss.Changelog" />
+
     <!-- Phone number -->
     <Preference
         android:key="phone_number"
-        android:order="0"
+        android:order="2"
         android:title="@string/status_number"
         android:summary="@string/summary_placeholder"/>
 
@@ -91,20 +99,22 @@
 
 
     <!-- Legal information -->
+    <!--
     <Preference
         android:key="legal_container"
         android:order="37"
         android:title="@string/legal_information"
         android:fragment="com.android.settings.LegalSettings"
-        settings:allowDividerAbove="true"/>
+        settings:allowDividerAbove="true"/>-->
 
     <!-- Regulatory labels -->
+    <!--
     <Preference
         android:key="regulatory_info"
         android:order="38"
         android:title="@string/regulatory_labels">
         <intent android:action="android.settings.SHOW_REGULATORY_INFO"/>
-    </Preference>
+    </Preference>-->
 
     <!-- Safety & regulatory manual -->
     <Preference
@@ -123,10 +133,10 @@
     </Preference>
 
     <!-- Feedback on the device -->
-    <Preference
+    <!--Preference
         android:key="device_feedback"
         android:order="41"
-        android:title="@string/device_feedback"/>
+        android:title="@string/device_feedback"/>-->
 
     <!-- Device FCC equipment id -->
     <Preference

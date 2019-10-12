@@ -19,7 +19,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="system_dashboard_screen"
     android:title="@string/header_category_system"
-    settings:initialExpandedChildrenCount="4">
+    settings:initialExpandedChildrenCount="8">
+
+	<!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:order="-500"
+        android:layout="@layout/bliss_logo" />
 
     <Preference
         android:key="gesture_settings"
@@ -38,6 +44,17 @@
         android:order="-60"
         settings:controller="com.android.settings.backup.BackupSettingsActivityPreferenceController">
         <intent android:action="android.settings.BACKUP_AND_RESET_SETTINGS" />
+    </Preference>
+
+    <Preference
+        android:key="update_settings"
+        android:title="@string/update_settings_title"
+        android:summary="@string/update_settings_summary"
+        android:icon="@drawable/ic_system_update"
+        android:order="-35">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="@string/update_package"
+                android:targetClass="@string/update_activity" />
     </Preference>
 
     <Preference

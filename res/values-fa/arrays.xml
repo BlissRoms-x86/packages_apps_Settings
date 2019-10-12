@@ -121,12 +121,6 @@
     <item msgid="3079489731769553856">"TTLS"</item>
     <item msgid="35269224158638258">"PWD"</item>
   </string-array>
-    <!-- no translation found for wifi_ap_band_config_full:0 (1085243288162893079) -->
-    <!-- no translation found for wifi_ap_band_config_full:1 (5531376834915607202) -->
-    <!-- no translation found for wifi_ap_band_summary_full:0 (7176872102094020362) -->
-    <!-- no translation found for wifi_ap_band_summary_full:1 (311895158827229479) -->
-    <!-- no translation found for wifi_ap_band_config_2G_only:0 (7006771583217001015) -->
-    <!-- no translation found for wifi_ap_band_config_2G_only:1 (8904289885593822837) -->
   <string-array name="wifi_p2p_wps_setup">
     <item msgid="5085064298144493867">"فشار دکمه"</item>
     <item msgid="1624323946324499595">"پین از دستگاه مرتبط شده"</item>
@@ -281,7 +275,7 @@
     <item msgid="4671646036128214513">"دوربین"</item>
     <item msgid="1097324338692486211">"ضبط صدا"</item>
     <item msgid="5031552983987798163">"پخش صدا"</item>
-    <item msgid="8374996688066472414">"خواندن کلیپ بورد"</item>
+    <item msgid="8374996688066472414">"خواندن بریده‌دان"</item>
     <item msgid="3045529469061083747">"تغییر بریده‌دان"</item>
     <item msgid="5124443975763747838">"دکمه‌های رسانه‌ای"</item>
     <item msgid="4547883971364273343">"فوکوس صدا"</item>
@@ -300,7 +294,7 @@
     <item msgid="2111767435887685265">"نمایش تست"</item>
     <item msgid="1091168669714823370">"فرستادن رسانه"</item>
     <item msgid="485564189219029300">"‏فعال کردن VPN"</item>
-    <item msgid="7155384795265164395">"نوشتن کاغذدیواری"</item>
+    <item msgid="7155384795265164395">"نوشتن تصویرزمینه"</item>
     <item msgid="1835836196806147034">"ساختار دستیار"</item>
     <item msgid="5989890403088155055">"عکس‌ صفحه‌نمایش دستیار"</item>
     <item msgid="8582699692765917557">"خواندن وضعیت تلفن"</item>
@@ -348,7 +342,7 @@
     <item msgid="781213371706962767">"دوربین"</item>
     <item msgid="1720492593061838172">"ضبط صدا"</item>
     <item msgid="3493046322001257041">"پخش صدا"</item>
-    <item msgid="136815868796597058">"خواندن کلیپ بورد"</item>
+    <item msgid="136815868796597058">"خواندن بریده‌دان"</item>
     <item msgid="5238692940326972503">"تغییر بریده‌دان"</item>
     <item msgid="5753789168376302997">"دکمه‌های رسانه‌"</item>
     <item msgid="3265262911688671938">"فوکوس صدا"</item>
@@ -367,7 +361,7 @@
     <item msgid="427580389823724225">"نمایش تست"</item>
     <item msgid="4992007785575926253">"فرستادن رسانه"</item>
     <item msgid="2482631530338029480">"‏فعال کردن VPN"</item>
-    <item msgid="1662979573471871926">"نوشتن کاغذدیواری"</item>
+    <item msgid="1662979573471871926">"نوشتن تصویرزمینه"</item>
     <item msgid="5964768335278263478">"ساختار دستیار"</item>
     <item msgid="2657138701132782702">"عکس‌ صفحه‌نمایش دستیار"</item>
     <item msgid="8571369610363539266">"خواندن وضعیت تلفن"</item>

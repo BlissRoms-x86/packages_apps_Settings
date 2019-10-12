@@ -23,6 +23,10 @@ import com.android.settings.IccLockSettings;
 import com.android.settings.MasterClear;
 import com.android.settings.PrivacySettings;
 import com.android.settings.Settings;
+import com.android.settings.Settings.FlingSettingsActivity;
+import com.android.settings.Settings.NavigationSettingsActivity;
+import com.android.settings.Settings.PulseSettingsActivity;
+import com.android.settings.Settings.SmartbarSettingsActivity;
 import com.android.settings.TestingSettings;
 import com.android.settings.TetherSettings;
 import com.android.settings.TrustedCredentialsSettings;
@@ -40,6 +44,7 @@ import com.android.settings.applications.DirectoryAccessDetails;
 import com.android.settings.applications.ManageDomainUrls;
 import com.android.settings.applications.ProcessStatsSummary;
 import com.android.settings.applications.ProcessStatsUi;
+import com.android.settings.applications.RunningServices;
 import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.appinfo.AppInfoDashboardFragment;
@@ -136,6 +141,12 @@ import com.android.settings.wifi.WifiInfo;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.calling.WifiCallingSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
+import com.android.settings.wifi.tether.WifiTetherSettings;
+
+import com.blissroms.blissify.BlissifySettings;
+import com.blissroms.blissify.fragments.ui.Weather;
+import com.blissroms.blissify.fragments.ui.SmartPixels;
+import com.blissroms.blissify.fragments.gestures.PieSettings;
 
 public class SettingsGateway {
 
@@ -151,6 +162,7 @@ public class SettingsGateway {
             SimSettings.class.getName(),
             TetherSettings.class.getName(),
             WifiP2pSettings.class.getName(),
+            WifiTetherSettings.class.getName(),
             BackgroundCheckSummary.class.getName(),
             VpnSettings.class.getName(),
             DateTimeSettings.class.getName(),
@@ -261,6 +273,16 @@ public class SettingsGateway {
             DirectoryAccessDetails.class.getName(),
             ToggleBackupSettingFragment.class.getName(),
             PreviouslyConnectedDeviceDashboardFragment.class.getName(),
+            BlissifySettings.class.getName(),
+            RunningServices.class.getName(),
+            SmartPixels.class.getName(),
+            Weather.class.getName(),
+            NavigationSettingsActivity.class.getName(),
+            SmartbarSettingsActivity.class.getName(),
+            FlingSettingsActivity.class.getName(),
+            PulseSettingsActivity.class.getName(),
+            PieSettings.class.getName()
+
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -299,5 +321,14 @@ public class SettingsGateway {
             Settings.DeviceInfoSettingsActivity.class.getName(),
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.MyDeviceInfoActivity.class.getName(),
+            Settings.DevRunningServicesActivity.class.getName(),
+            Settings.BlissifyActivity.class.getName(),
+            Settings.SmartPixelsActivity.class.getName(),
+            Settings.OmniJawsSettingsActivity.class.getName(),
+            Settings.NavigationSettingsActivity.class.getName(),
+            Settings.SmartbarSettingsActivity.class.getName(),
+            Settings.FlingSettingsActivity.class.getName(), 
+            Settings.PulseSettingsActivity.class.getName(),
+            Settings.PieControlSettingsActivity.class.getName()
     };
 }

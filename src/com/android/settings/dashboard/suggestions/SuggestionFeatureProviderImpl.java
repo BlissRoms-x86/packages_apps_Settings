@@ -20,6 +20,7 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.service.settings.suggestions.Suggestion;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -43,6 +44,7 @@ import com.android.settingslib.drawer.Tile;
 import com.android.settingslib.suggestions.SuggestionControllerMixin;
 
 import java.util.List;
+import java.lang.String;
 
 public class SuggestionFeatureProviderImpl implements SuggestionFeatureProvider {
 
@@ -57,14 +59,25 @@ public class SuggestionFeatureProviderImpl implements SuggestionFeatureProvider 
     public boolean isSuggestionEnabled(Context context) {
         final ActivityManager am =
                 (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        return !am.isLowRamDevice();
+        return !am.isLowRamDevice() 
+                && (Settings.System.getInt(context.getContentResolver(), 
+                Settings.System.ENABLE_SUGGESTIONS, 1) == 1); 
     }
 
     @Override
-    public ComponentName getSuggestionServiceComponent() {
-        return new ComponentName(
-                "com.android.settings.intelligence",
-                "com.android.settings.intelligence.suggestions.SuggestionService");
+    public ComponentName getSuggestionServiceComponent(Context context) {
+        String intelligencePkg = FeatureFactory.getFactory(context)
+                                               .getSearchFeatureProvider()
+                                               .getSettingsIntelligencePkgName(context);
+
+        StringBuilder intelligence = new StringBuilder(intelligencePkg);
+        String serviceBase = intelligencePkg.contains("google") ?
+                                    ".modules" : "";
+        String suggestionService = intelligence.append(serviceBase)
+                                               .append(".suggestions.SuggestionService")
+                                               .toString();
+
+        return new ComponentName(intelligencePkg, suggestionService);
     }
 
     @Override

@@ -47,8 +47,10 @@ import com.android.settings.deviceinfo.ManualPreferenceController;
 import com.android.settings.deviceinfo.PhoneNumberPreferenceController;
 import com.android.settings.deviceinfo.RegulatoryInfoPreferenceController;
 import com.android.settings.deviceinfo.SafetyInfoPreferenceController;
+import com.android.settings.deviceinfo.UpTimePreferenceController;
 import com.android.settings.deviceinfo.WifiMacAddressPreferenceController;
 import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController;
+import com.android.settings.deviceinfo.bliss.BlissInfoPreferenceController;
 import com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController;
 import com.android.settings.deviceinfo.simstatus.SimStatusPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -65,7 +67,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
     private static final String LOG_TAG = "MyDeviceInfoFragment";
 
     private static final String KEY_MY_DEVICE_INFO_HEADER = "my_device_info_header";
-    private static final String KEY_LEGAL_CONTAINER = "legal_container";
+    //private static final String KEY_LEGAL_CONTAINER = "legal_container";
 
     @Override
     public int getMetricsCategory() {
@@ -129,8 +131,10 @@ public class MyDeviceInfoFragment extends DashboardFragment
         controllers.add(new ManualPreferenceController(context));
         controllers.add(new FeedbackPreferenceController(fragment, context));
         controllers.add(new FccEquipmentIdPreferenceController(context));
+        controllers.add(new BlissInfoPreferenceController(context, fragment));
         controllers.add(
                 new BuildNumberPreferenceController(context, activity, fragment, lifecycle));
+        controllers.add(new UpTimePreferenceController(context));
         return controllers;
     }
 
@@ -225,7 +229,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
                     // The legal container is duplicated, so we ignore it here.
-                    keys.add(KEY_LEGAL_CONTAINER);
+                    //keys.add(KEY_LEGAL_CONTAINER);
                     return keys;
                 }
             };

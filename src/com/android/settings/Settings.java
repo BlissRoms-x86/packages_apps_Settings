@@ -18,6 +18,7 @@ package com.android.settings;
 
 import android.os.Bundle;
 
+import com.android.settings.applications.appops.AppOpsSummary;
 import com.android.settings.enterprise.EnterprisePrivacySettings;
 
 /**
@@ -32,6 +33,7 @@ public class Settings extends SettingsActivity {
     public static class BluetoothSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SimSettingsActivity extends SettingsActivity { /* empty */ }
     public static class TetherSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class WifiTetherSettingsActivity extends SettingsActivity { /* empty */ }
     public static class VpnSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DateTimeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrivateVolumeForgetActivity extends SettingsActivity { /* empty */ }
@@ -56,6 +58,15 @@ public class Settings extends SettingsActivity {
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
     public static class HighPowerApplicationsActivity extends SettingsActivity { /* empty */ }
+    public static class AppOpsSummaryActivity extends SettingsActivity {
+        @Override
+        public boolean isValidFragment(String className) {
+            if (AppOpsSummary.class.getName().equals(className)) {
+                return true;
+            }
+            return super.isValidFragment(className);
+        }
+    }
     public static class BackgroundCheckSummaryActivity extends SettingsActivity { /* empty */ }
     public static class StorageUseActivity extends SettingsActivity { /* empty */ }
     public static class DevelopmentSettingsDashboardActivity extends SettingsActivity { /* empty */ }
@@ -165,4 +176,16 @@ public class Settings extends SettingsActivity {
     public static class AccountDashboardActivity extends SettingsActivity {}
     public static class SystemDashboardActivity extends SettingsActivity {}
 
+    public static class BlissifyActivity extends SettingsActivity { /* empty */ }
+    public static class OmniJawsSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class SmartPixelsActivity extends SettingsActivity { /* empty */ }
+    public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
+    public static class NavigationSettingsActivity extends SettingsActivity {}
+    public static class SmartbarSettingsActivity extends SettingsActivity {}
+    public static class FlingSettingsActivity extends SettingsActivity {}
+    public static class PulseSettingsActivity extends SettingsActivity {}
+    public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
+
+    // omni additions start
+    public static class SwipeToNotificationSuggestionActivity extends SettingsActivity { /* empty */ }
 }

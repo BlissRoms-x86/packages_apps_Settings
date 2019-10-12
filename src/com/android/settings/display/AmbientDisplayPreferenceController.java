@@ -17,12 +17,14 @@ package com.android.settings.display;
 
 import android.content.Context;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.v7.preference.Preference;
 
 import com.android.internal.hardware.AmbientDisplayConfiguration;
 import com.android.settings.R;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.internal.util.omni.DeviceUtils;
 
 public class AmbientDisplayPreferenceController extends AbstractPreferenceController implements
         PreferenceControllerMixin {
@@ -41,16 +43,20 @@ public class AmbientDisplayPreferenceController extends AbstractPreferenceContro
 
     @Override
     public boolean isAvailable() {
-        return mConfig.available();
+        return mConfig.available() && !DeviceUtils.hasAltAmbientDisplay(mContext.getApplicationContext());
     }
 
     @Override
     public void updateState(Preference preference) {
         super.updateState(preference);
-        if (mConfig.alwaysOnEnabled(MY_USER_ID)) {
+        final boolean dozeOnChargeEnabled = (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.OMNI_DOZE_ON_CHARGE, 0) != 0);
+        if (mConfig.alwaysOnEnabledSetting(MY_USER_ID)) {
             preference.setSummary(R.string.ambient_display_screen_summary_always_on);
         } else if (mConfig.pulseOnNotificationEnabled(MY_USER_ID)) {
             preference.setSummary(R.string.ambient_display_screen_summary_notifications);
+        } else if (dozeOnChargeEnabled) {
+            preference.setSummary(R.string.doze_on_charge_summary);
         } else if (mConfig.enabled(MY_USER_ID)) {
             preference.setSummary(R.string.switch_on_text);
         } else {

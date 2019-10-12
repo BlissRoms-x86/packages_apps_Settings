@@ -415,4 +415,10 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         }
     }
 
+    // omni additions start
+    public boolean isPositionFullSpan(int position) {
+        final int type = mDashboardData.getItemTypeByPosition(position);
+        return type != R.layout.dashboard_tile;
+    }
+
 }

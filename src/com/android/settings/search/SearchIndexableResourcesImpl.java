@@ -20,7 +20,6 @@ import android.support.annotation.VisibleForTesting;
 
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DisplaySettings;
-import com.android.settings.LegalSettings;
 import com.android.settings.connecteddevice.AdvancedConnectedDeviceDashboardFragment;
 import com.android.settings.connecteddevice.PreviouslyConnectedDeviceDashboardFragment;
 import com.android.settings.connecteddevice.BluetoothDashboardFragment;
@@ -55,6 +54,7 @@ import com.android.settings.fuelgauge.PowerUsageAdvanced;
 import com.android.settings.fuelgauge.batterysaver.BatterySaverSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.fuelgauge.SmartBatterySettings;
+import com.android.settings.fuelgauge.AggressiveBatterySettings;
 import com.android.settings.gestures.AssistGestureSettings;
 import com.android.settings.gestures.DoubleTapPowerSettings;
 import com.android.settings.gestures.DoubleTapScreenSettings;
@@ -159,7 +159,6 @@ public class SearchIndexableResourcesImpl implements SearchIndexableResources {
         addIndex(PrintSettingsFragment.class);
         addIndex(DevelopmentSettingsDashboardFragment.class);
         addIndex(DeviceInfoSettings.class);
-        addIndex(LegalSettings.class);
         addIndex(SystemDashboardFragment.class);
         addIndex(ResetDashboardFragment.class);
         addIndex(StorageDashboardFragment.class);
@@ -188,11 +187,13 @@ public class SearchIndexableResourcesImpl implements SearchIndexableResources {
         addIndex(ZenModeRestrictNotificationsSettings.class);
         addIndex(NightDisplaySettings.class);
         addIndex(SmartBatterySettings.class);
+        addIndex(AggressiveBatterySettings.class);
         addIndex(MyDeviceInfoFragment.class);
         addIndex(VibrationSettings.class);
         addIndex(RecentLocationRequestSeeAllFragment.class);
         addIndex(PreviouslyConnectedDeviceDashboardFragment.class);
         addIndex(BluetoothDashboardFragment.class);
+
     }
 
     @Override

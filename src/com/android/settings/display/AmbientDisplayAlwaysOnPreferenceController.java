@@ -61,7 +61,7 @@ public class AmbientDisplayAlwaysOnPreferenceController extends TogglePreference
 
     @Override
     public boolean isChecked() {
-        return mConfig.alwaysOnEnabled(MY_USER);
+        return mConfig.alwaysOnEnabledSetting(MY_USER);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class AmbientDisplayAlwaysOnPreferenceController extends TogglePreference
     }
 
     public static boolean isAlwaysOnEnabled(AmbientDisplayConfiguration config) {
-        return config.alwaysOnEnabled(MY_USER);
+        return config.alwaysOnEnabledSetting(MY_USER);
     }
 
     public static boolean isAvailable(AmbientDisplayConfiguration config) {
@@ -107,6 +107,6 @@ public class AmbientDisplayAlwaysOnPreferenceController extends TogglePreference
 
         return new InlineSwitchPayload(Settings.Secure.DOZE_ALWAYS_ON,
                 ResultPayload.SettingsSource.SECURE, ON /* onValue */, intent, isAvailable(),
-                ON /* defaultValue */);
+                OFF /* defaultValue */);
     }
 }

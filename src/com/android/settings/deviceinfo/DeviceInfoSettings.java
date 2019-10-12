@@ -31,6 +31,7 @@ import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController;
 import com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController;
 import com.android.settings.deviceinfo.simstatus.SimStatusPreferenceController;
+import com.android.settings.deviceinfo.UpdatePreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -44,7 +45,7 @@ public class DeviceInfoSettings extends DashboardFragment implements Indexable {
 
     private static final String LOG_TAG = "DeviceInfoSettings";
 
-    private static final String KEY_LEGAL_CONTAINER = "legal_container";
+    //private static final String KEY_LEGAL_CONTAINER = "legal_container";
 
     @VisibleForTesting
     static final int SIM_PREFERENCES_COUNT = 3;
@@ -133,11 +134,12 @@ public class DeviceInfoSettings extends DashboardFragment implements Indexable {
         controllers.add(new IpAddressPreferenceController(context, lifecycle));
         controllers.add(new WifiMacAddressPreferenceController(context, lifecycle));
         controllers.add(new BluetoothAddressPreferenceController(context, lifecycle));
-        controllers.add(new RegulatoryInfoPreferenceController(context));
+        //controllers.add(new RegulatoryInfoPreferenceController(context));
         controllers.add(new SafetyInfoPreferenceController(context));
         controllers.add(new ManualPreferenceController(context));
-        controllers.add(new FeedbackPreferenceController(fragment, context));
+        //controllers.add(new FeedbackPreferenceController(fragment, context));
         controllers.add(new FccEquipmentIdPreferenceController(context));
+	controllers.add(new UpdatePreferenceController(context));
         controllers.add(
                 new BuildNumberPreferenceController(context, activity, fragment, lifecycle));
         return controllers;
@@ -167,7 +169,7 @@ public class DeviceInfoSettings extends DashboardFragment implements Indexable {
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
-                    keys.add(KEY_LEGAL_CONTAINER);
+                    //keys.add(KEY_LEGAL_CONTAINER);
                     return keys;
                 }
             };
