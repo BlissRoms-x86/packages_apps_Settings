@@ -61,7 +61,7 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFragment
         implements SwitchBar.OnSwitchChangeListener, OemUnlockDialogHost, AdbDialogHost,
-        AdbClearKeysDialogHost, LogPersistDialogHost,
+        WirelessAdbDialogHost, AdbClearKeysDialogHost, LogPersistDialogHost,
         BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener {
 
     private static final String TAG = "DevSettingsDashboard";
@@ -265,6 +265,20 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
     }
 
     @Override
+    public void onWirelessAdbDialogConfirmed() {
+        final WirelessAdbPreferenceController controller = getDevelopmentOptionsController(
+                WirelessAdbPreferenceController.class);
+        controller.onWirelessAdbDialogConfirmed();
+    }
+
+    @Override
+    public void onWirelessAdbDialogDismissed() {
+        final WirelessAdbPreferenceController controller = getDevelopmentOptionsController(
+                WirelessAdbPreferenceController.class);
+        controller.onWirelessAdbDialogDismissed();
+    }
+
+    @Override
     public void onAdbClearKeysDialogConfirmed() {
         final ClearAdbKeysPreferenceController controller = getDevelopmentOptionsController(
                 ClearAdbKeysPreferenceController.class);
@@ -403,7 +417,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
             BluetoothA2dpConfigStore bluetoothA2dpConfigStore) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
         controllers.add(new MemoryUsagePreferenceController(context));
-        controllers.add(new BugReportPreferenceController(context));
+        //controllers.add(new BugReportPreferenceController(context));
         controllers.add(new SystemServerHeapDumpPreferenceController(context));
         controllers.add(new LocalBackupPasswordPreferenceController(context));
         controllers.add(new StayAwakePreferenceController(context, lifecycle));
@@ -414,11 +428,12 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new PictureColorModePreferenceController(context, lifecycle));
         controllers.add(new WebViewAppPreferenceController(context));
         controllers.add(new CoolColorTemperaturePreferenceController(context));
-        controllers.add(new DisableAutomaticUpdatesPreferenceController(context));
+        //controllers.add(new DisableAutomaticUpdatesPreferenceController(context));
         controllers.add(new AdbPreferenceController(context, fragment));
+        controllers.add(new WirelessAdbPreferenceController(context, fragment));
         controllers.add(new ClearAdbKeysPreferenceController(context, fragment));
         controllers.add(new LocalTerminalPreferenceController(context));
-        controllers.add(new BugReportInPowerPreferenceController(context));
+        //controllers.add(new BugReportInPowerPreferenceController(context));
         controllers.add(new AutomaticSystemServerHeapDumpPreferenceController(context));
         controllers.add(new MockLocationAppPreferenceController(context, fragment));
         controllers.add(new DebugViewAttributesPreferenceController(context));
@@ -464,7 +479,6 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new HardwareLayersUpdatesPreferenceController(context));
         controllers.add(new DebugGpuOverdrawPreferenceController(context));
         controllers.add(new DebugNonRectClipOperationsPreferenceController(context));
-        controllers.add(new ForceDarkPreferenceController(context));
         controllers.add(new ForceMSAAPreferenceController(context));
         controllers.add(new HardwareOverlaysPreferenceController(context));
         controllers.add(new SimulateColorSpacePreferenceController(context));
