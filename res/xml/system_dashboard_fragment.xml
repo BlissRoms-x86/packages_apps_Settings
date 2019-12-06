@@ -19,7 +19,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="system_dashboard_screen"
     android:title="@string/header_category_system"
-    settings:initialExpandedChildrenCount="4">
+    settings:initialExpandedChildrenCount="8">
+
+    <!-- bliss Logo Header -->
+    <Preference 
+        android:key="bliss_logo"
+        android:order="-500"
+        android:layout="@layout/bliss_logo" />
 
     <!-- bliss Logo Header -->
     <Preference 
@@ -53,6 +59,18 @@
         android:order="-30"
         settings:keywords="@string/keywords_system_update_settings"
         settings:controller="com.android.settings.system.SystemUpdatePreferenceController">
+        <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
+    </Preference>
+
+    <!-- Bliss Updater -->
+    <Preference
+        android:key="bliss_updater"
+        android:title="@string/bliss_updater_title"
+        android:summary="@string/bliss_updater_summary"
+        android:icon="@drawable/ic_system_update"
+        android:order="-35"
+        settings:keywords="@string/keywords_bliss_updater"
+        settings:controller="com.android.settings.system.BlissUpdatePreferenceController">
         <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
     </Preference>
 

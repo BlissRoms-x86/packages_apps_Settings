@@ -16,11 +16,12 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="display_settings_screen"
     android:title="@string/display_settings"
     settings:keywords="@string/keywords_display"
-    settings:initialExpandedChildrenCount="5">
+    settings:initialExpandedChildrenCount="8">
 
     <com.android.settingslib.RestrictedPreference
         android:key="brightness"
@@ -83,6 +84,11 @@
         settings:keywords="@string/keywords_auto_rotate"
         settings:controller="com.android.settings.display.AutoRotatePreferenceController" />
 
+    <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="rotation"
+        lineage:replacesKey="auto_rotate"
+        lineage:requiresFeature="android.hardware.sensor.accelerometer" />
+
     <Preference
         android:key="color_mode"
         android:title="@string/color_mode_title"
@@ -112,6 +118,10 @@
         android:key="show_operator_name"
         android:title="@string/show_operator_name_title"
         android:summary="@string/show_operator_name_summary" />
+
+    <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="long_screen_settings"
+        lineage:requiresConfig="@*lineageos.platform:bool/config_haveHigherAspectRatioScreen" />
 
     <Preference
         android:key="screensaver"
@@ -144,9 +154,30 @@
         android:title="@string/device_theme"
         android:summary="@string/summary_placeholder" />
 
+    <SwitchPreference
+        android:key="hwui_force_dark"
+        android:title="@string/hwui_force_dark_title"
+        android:summary="@string/hwui_force_dark_summary" />
+
     <Preference
         android:key="vr_display_pref"
         android:title="@string/display_vr_pref_title"
         android:fragment="com.android.settings.display.VrDisplayPreferencePicker" />
+
+    <PreferenceCategory
+        android:key="theme_customization_category"
+        android:title="@string/theme_customization_category"
+        android:order="1200"> <!-- Incremented by 100 from last order (i.e. 1100) -->
+
+        <ListPreference
+            android:key="android.theme.customization.accent_color"
+            android:title="@string/theme_customization_accent_color_title"/>
+        <ListPreference
+            android:key="android.theme.customization.font"
+            android:title="@string/theme_customization_font_title"/>
+        <ListPreference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"/>
+    </PreferenceCategory>
 
 </PreferenceScreen>
