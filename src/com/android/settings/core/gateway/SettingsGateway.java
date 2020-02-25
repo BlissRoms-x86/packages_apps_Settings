@@ -77,6 +77,7 @@ import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings;
 import com.android.settings.deviceinfo.legal.ModuleLicensesDashboard;
 import com.android.settings.deviceinfo.bliss.BlissVersionSettings;
 import com.android.settings.display.NightDisplaySettings;
+import com.android.settings.display.darkmode.DarkModeSettingsFragment;
 import com.android.settings.dream.DreamSettings;
 import com.android.settings.enterprise.EnterprisePrivacySettings;
 import com.android.settings.fuelgauge.AdvancedPowerUsageDetail;
@@ -293,6 +294,7 @@ public class SettingsGateway {
             Blissify.class.getName(),
             GamingMode.class.getName(),
             RunningServices.class.getName(),
+            DarkModeSettingsFragment.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {

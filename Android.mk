@@ -24,6 +24,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_SRC_FILES += $(call all-java-files-under,../../../external/koush/Widgets/Widgets/src)
 LOCAL_SRC_FILES += $(call all-java-files-under,../../../external/koush/Superuser/Superuser/src)
 LOCAL_SRC_FILES += $(call all-java-files-under, ../Blissify/src) 
+LOCAL_SRC_FILES += $(call all-java-files-under, ../../../external/google/SettingsGoogle/src)
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx-constraintlayout_constraintlayout \
@@ -59,6 +60,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
     packages/apps/Blissify/res \
+    external/google/SettingsGoogle/res \
     external/koush/Widgets/Widgets/res \
     external/koush/Superuser/Superuser/res
     
