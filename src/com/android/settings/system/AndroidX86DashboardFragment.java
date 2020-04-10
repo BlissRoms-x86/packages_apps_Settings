@@ -38,16 +38,10 @@ public class AndroidX86DashboardFragment extends SettingsPreferenceFragment {
 
     private DownloadManager mDownloadManager;
     private SwitchPreference mNativeBridgePreference;
-    private SwitchPreference mHwInfoPreference;
-    private SwitchPreference mAppsUsagePreference;
 
     private static final String TAG = "Dl-NB";
     private static final String KEY_TOGGLE_NB = "toggle_nb";
     private static final String PROPERTY_NATIVEBRIDGE = "persist.sys.nativebridge";
-    private static final String KEY_TOGGLE_HW_INFO = "toggle_hw_info";
-    private static final String PROPERTY_HW_INFO = "persist.sys.hw_statistics";
-    private static final String KEY_TOGGLE_APPS_USAGE = "toggle_apps_usage";
-    private static final String PROPERTY_APPS_USAGE = "persist.sys.apps_statistics";
     private static final String NB_LIBRARIES = "Native bridge libraries ";
     private static long sDownloadId = -1;
     private static int sDownloadStatus = -1;
@@ -60,20 +54,12 @@ public class AndroidX86DashboardFragment extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.android_x86_options);
         mNativeBridgePreference = (SwitchPreference) findPreference(KEY_TOGGLE_NB);
         checkNativeBridgeStatus();
-        mHwInfoPreference = (SwitchPreference) findPreference(KEY_TOGGLE_HW_INFO);
-        mHwInfoPreference.setChecked(SystemProperties.getBoolean(PROPERTY_HW_INFO, true));
-        mAppsUsagePreference = (SwitchPreference) findPreference(KEY_TOGGLE_APPS_USAGE);
-        mAppsUsagePreference.setChecked(SystemProperties.getBoolean(PROPERTY_APPS_USAGE, false));
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mNativeBridgePreference) {
             setNativeBridge(mNativeBridgePreference.isChecked());
-        } else if (preference == mHwInfoPreference) {
-            SystemProperties.set(PROPERTY_HW_INFO, Boolean.toString(mHwInfoPreference.isChecked()));
-        } else if (preference == mAppsUsagePreference) {
-            SystemProperties.set(PROPERTY_APPS_USAGE, Boolean.toString(mAppsUsagePreference.isChecked()));
         }
         return super.onPreferenceTreeClick(preference);
     }
