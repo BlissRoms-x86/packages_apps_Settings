@@ -1358,6 +1358,7 @@
     <string name="system_update_settings_list_item_summary" msgid="6703752298349642101"></string>
     <string name="firmware_version" msgid="1606901586501447275">"Android 版本"</string>
     <string name="security_patch" msgid="2872125288404962091">"Android 安全补丁程序级别"</string>
+    <string name="device_manufacturer" msgid="3516742885166545865">"制造商"</string>
     <string name="model_info" msgid="8997566254717810904">"型号"</string>
     <string name="model_summary" msgid="2246651782442466213">"型号：%1$s"</string>
     <string name="hardware_info" msgid="7035211991066637019">"型号和硬件"</string>
@@ -1365,6 +1366,7 @@
     <string name="fcc_equipment_id" msgid="6596668314025646129">"设备 ID"</string>
     <string name="baseband_version" msgid="2600182227599835857">"基带版本"</string>
     <string name="kernel_version" msgid="3513538109381366881">"内核版本"</string>
+    <string name="opengl_version">"Open GL 驱动版本"</string>
     <string name="build_number" msgid="9009733242117579826">"版本号"</string>
     <string name="module_version" msgid="1787518340082046658">"Google Play 系统更新"</string>
     <string name="device_info_not_available" msgid="4804474466616712326">"无法获取"</string>
@@ -1993,6 +1995,10 @@
     <string name="runningservicedetails_stop_dlg_title" msgid="6201041461740445113">"要停止系统服务吗？"</string>
     <string name="runningservicedetails_stop_dlg_text" product="tablet" msgid="2076922609580490122">"如果停止此服务，您平板电脑上的某些功能也将随之停止工作，并在您将平板电脑关机然后再重新打开后才能使用。"</string>
     <string name="runningservicedetails_stop_dlg_text" product="default" msgid="2625863973434309085">"如果停止此服务，您手机上的某些功能也将随之停止工作，并在您将手机关机然后再重新打开后才能使用。"</string>
+    <string name="android_x86_options_title">"安卓X86设置"</string>
+    <string name="android_x86_dashboard_summary">兼容模式、统计</string>
+    <string name="nativebridge_toggle_title">"兼容模式"</string>
+    <string name="nativebridge_toggle_summary">"可兼容於使用 arm 庫的应用"</string>
     <string name="language_input_gesture_title" msgid="3292455685728572960">"语言、输入法和手势"</string>
     <string name="language_input_gesture_summary_on_with_assist" msgid="8670153838520237089"></string>
     <string name="language_input_gesture_summary_on_non_assist" msgid="2738661322747920463"></string>
