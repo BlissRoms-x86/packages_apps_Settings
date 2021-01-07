@@ -118,6 +118,7 @@ import com.android.settings.localepicker.LocaleListEditor;
 import com.android.settings.location.LocationServices;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.location.WifiScanningFragment;
+import com.android.settings.network.CeladonEthernetSettings;
 import com.android.settings.network.MobileNetworkListFragment;
 import com.android.settings.network.NetworkDashboardFragment;
 import com.android.settings.network.NetworkProviderSettings;
@@ -280,6 +281,7 @@ public class SettingsGateway {
             ApnSettings.class.getName(),
             ApnEditor.class.getName(),
             EthernetSettings.class.getName(),
+            CeladonEthernetSettings.class.getName(),
             WifiCallingSettings.class.getName(),
             ZenModeScheduleRuleSettings.class.getName(),
             ZenModeEventRuleSettings.class.getName(),

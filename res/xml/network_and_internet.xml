@@ -128,6 +128,11 @@
         settings:useAdminDisabledSummary="true"
         android:fragment="com.android.settings.EthernetSettings" />
 
+    <PreferenceScreen
+        android:fragment="com.android.settings.network.CeladonEthernetSettings"
+        android:key="ethernet_settings"
+        android:title="@string/celadon_ethernet_settings" />
+
     <Preference
         android:fragment="com.android.settings.network.AdaptiveConnectivitySettings"
         android:key="adaptive_connectivity"

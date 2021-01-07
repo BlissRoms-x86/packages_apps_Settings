@@ -2485,6 +2485,24 @@
                        android:value="@string/menu_key_network"/>
         </activity>
 
+        <activity android:name="Settings$CeladonEthernetSettingsActivity"
+                android:label="@string/celadon_ethernet_settings"
+                android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.network.CeladonEthernetSettings" />
+        </activity>
+
         <activity
             android:name="Settings$DevelopmentSettingsDashboardActivity"
             android:label="@string/development_settings_title"
