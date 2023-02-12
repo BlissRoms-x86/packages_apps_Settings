@@ -38,11 +38,9 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.CheckBoxPreference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
+import androidx.preference.SwitchPreference;
+import androidx.preference.ListPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -69,7 +67,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import android.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener; 
 import com.android.settings.SettingsPreferenceFragment.SettingsDialogFragment;
 
@@ -82,7 +81,7 @@ import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.net.StaticIpConfiguration;
-import android.net.NetworkUtils;
+import android.net.InetAddresses;
 import android.net.LinkAddress;
 import android.net.LinkProperties;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -204,7 +203,7 @@ public class EthernetSettings extends SettingsPreferenceFragment
 
     private Inet4Address getIPv4Address(String text) {
         try {
-            return (Inet4Address) NetworkUtils.numericToInetAddress(text);
+            return (Inet4Address) InetAddresses.parseNumericAddress(text);
         } catch (IllegalArgumentException|ClassCastException e) {
             return null;
         }

@@ -13417,7 +13417,7 @@
 
     <!-- Used in the 1st-level settings screen to go to the 2nd-level settings screen  [CHAR LIMIT=20]-->
     <string name="celadon_ethernet_proxy_settings" translatable="false">Proxy Configuration</string>
-    <string name="celadon_ethernet_settings" translatable="false">Celadon&#39s Ethernet Settings</string>
+    <string name="celadon_ethernet_settings" translatable="false">Celadon\'s Ethernet Settings</string>
     <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
     <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
 

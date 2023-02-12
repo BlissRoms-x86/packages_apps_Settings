@@ -68,7 +68,7 @@ public class CeladonEthernetSettings extends SettingsPreferenceFragment
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.ethernet_proxy_settings);
+        addPreferencesFromResource(R.xml.celadon_ethernet_proxy_settings);
 
 	mProxyPreference = (EditTextPreference) findPreference("proxy");
         mPortPreference = (EditTextPreference) findPreference("port");
