@@ -25,7 +25,7 @@
             android:key="show_virtual_keyboard_switch"
             android:title="@string/show_ime"
             android:summary="@string/show_ime_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <Preference
             android:key="keyboard_shortcuts_helper"
