@@ -82,6 +82,7 @@ import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.Profile;
 import android.provider.ContactsContract.RawContacts;
+import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.Spannable;
@@ -1066,7 +1067,9 @@ public final class Utils extends com.android.settingslib.Utils {
     public static boolean isSystemAlertWindowEnabled(Context context) {
         // SYSTEM_ALERT_WINDOW is disabled on on low ram devices starting from Q
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        return !(am.isLowRamDevice() && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q));
+        boolean isBypassed = Settings.System.getInt(context.getContentResolver(),
+            Settings.System.ALERT_WINDOW_BYPASS_LOW_RAM, 0) == 1;
+        return ((!(am.isLowRamDevice() && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q))) || isBypassed);
     }
 
     /**
