@@ -97,11 +97,14 @@ public class SettingsLicenseActivity extends FragmentActivity implements
         final Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(uri, "text/html");
         intent.putExtra(Intent.EXTRA_TITLE, getString(R.string.settings_license_activity_title));
+
+        // Ensure proper URI permissions
         if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme())) {
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
-        intent.setPackage("com.android.htmlviewer");
+
+        // Explicitly target HTMLViewerActivity
+        intent.setClassName("com.android.htmlviewer", "com.android.htmlviewer.HTMLViewerActivity");
 
         try {
             startActivity(intent);
