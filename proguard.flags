@@ -82,3 +82,12 @@
 -keep class **.R$* {
     <fields>;
 }
+
+# For Vulkan driver info
+-keep class com.android.settings.deviceinfo.firmwareversion.VulkanUtils {
+    native <methods>;
+}
+
+-keep class com.android.settings.deviceinfo.firmwareversion.VulkanUtils$VkPhysicalDevices {
+    boolean addDevice(long, long, long, long, long, java.lang.String);
+}

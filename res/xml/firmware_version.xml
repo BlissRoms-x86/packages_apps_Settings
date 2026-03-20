@@ -70,6 +70,14 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.OpenGLVersionPreferenceController"/>
 
+    <!-- Vulkan driver -->
+    <Preference
+        android:key="vulkan_version"
+        android:title="@string/vulkan_version"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.VulkanVersionPreferenceController"/>
+
     <!-- Build -->
     <Preference
         android:key="os_build_number"

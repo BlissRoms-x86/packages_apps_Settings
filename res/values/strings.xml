@@ -3372,6 +3372,8 @@
     <string name="kernel_version">Kernel version</string>
     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
     <string name="opengl_version">OpenGL ES driver version</string>
+    <!-- About screen,  setting option name  [CHAR LIMIT=40] -->
+    <string name="vulkan_version">Vulkan driver version</string>
     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
     <string name="build_number">Build number</string>
     <!-- About phone screen, tapping this button will take user to a seperate UI to check Google Play system update [CHAR LIMIT=60] -->

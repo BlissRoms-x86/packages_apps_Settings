@@ -124,6 +124,9 @@ android_app {
     ],
     static_libs: ["Settings-core"],
     uses_libs: ["org.apache.http.legacy"],
+    jni_libs: [
+        "libsettings_vulkan",
+    ],
     optional_uses_libs: [
         "androidx.window.extensions",
         "androidx.window.sidecar",
